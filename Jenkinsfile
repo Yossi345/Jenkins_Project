@@ -13,7 +13,8 @@ pipeline {
         }
         stage('build App') {
             steps {
-                sh "docker build -t list-ec2:latest ."
+                script {
+                    docker.image('list-ec2:latest')
             }
         }
 
