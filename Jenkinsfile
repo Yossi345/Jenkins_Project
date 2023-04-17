@@ -1,21 +1,21 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Initialize') {
             steps {
-                echo 'Building..'
+                cleanWs()
             }
         }
-        stage('Test') {
+        stage('SCM Checkout') {
             steps {
-                echo 'Testing..'
+                git branch: 'main', url: 'https://github.com/Yossi345/Jenkins_Project.git'
             }
         }
-        stage('Deploy') {
+        stage('build App') {
             steps {
-                echo 'Deploying....'
+                sh "docker build -t list-ec2:latest ."
             }
         }
-    }
-}
+
+            }
+        }
