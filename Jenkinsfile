@@ -14,7 +14,7 @@ pipeline {
         stage('build App') {
             steps {
                 script {
-                    sh "docker --version"
+                    bat "docker --version"
                     // sh "docker build -t list-ec2:lastst"
                     // docker.build('list-ec2:latest')
                 }
