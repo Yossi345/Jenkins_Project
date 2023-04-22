@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    triggers {
+        cron('H/5 * * * *')
+    }
+    environment {
+        DOCKER_IMAGE_NAME = "jeck/app"
+        DOCKERHUB_REGISTRY = "docker.io"
+
+    }
+    stages {
+        stage('Pull and Run Image') {
+            steps {
+                script {
+                    def currentBuildNumber = env.BUILD_NUMBER
+                    def dockerImageTag = "${DOCKERHUB_REGISTRY}/${DOCKER_IMAGE_NAME}:${currentBuildNumber}"
+                    def lastImageTag = sh(script: "docker pull ${dockerImageTag} || true", returnStdout: true).trim()
+                    
+                    if (dockerImageTag != lastImageTag) {
+                        docker.withRegistry('https://registry.hub.docker.com', 'efc3c6f8-5e82-49e1-95e3-8a4754f11935') {
+                        sh "docker pull ${dockerImageTag}"
+                        sh "docker run -d ${dockerImageTag}"
+			}
+                    } else {
+                        echo "Image ${dockerImageTag} has not changed since last pull."
+                    }
+                }
+            }
+        }
+    }
+}
