@@ -4,7 +4,7 @@ pipeline {
         cron('H/5 * * * *')
     }
     environment {
-        DOCKER_IMAGE_NAME = "jeck/app"
+        DOCKER_IMAGE_NAME = "yossig3/list_active_ec2"
         DOCKERHUB_REGISTRY = "docker.io"
 
     }
