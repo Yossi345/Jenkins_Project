@@ -1,4 +1,3 @@
-# check webhook3
 pipeline {
     agent any
     stages {
