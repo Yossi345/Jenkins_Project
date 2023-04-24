@@ -15,4 +15,3 @@ o	method hudson.model.ItemGroup getItem java.lang.String
 o	method hudson.model.Job getLastSuccessfulBuild
 o	method hudson.model.Run getNumber
 o	staticMethod jenkins.model.Jenkins getInstance
-
