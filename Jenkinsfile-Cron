@@ -12,8 +12,8 @@ pipeline {
         stage('Pull and Run Image') {
             steps {
                 script {
-                    def currentBuildNumber = env.BUILD_NUMBER
-                    def dockerImageTag = "${DOCKERHUB_REGISTRY}/${DOCKER_IMAGE_NAME}:${currentBuildNumber}"
+                    def BuildTag = Jenkins.instance.getItem('List_EC2_App-Build').lastSuccessfulBuild.number
+                    def dockerImageTag = "${DOCKERHUB_REGISTRY}/${DOCKER_IMAGE_NAME}:${BuildTag}"
                     def lastImageTag = sh(script: "docker pull ${dockerImageTag} || true", returnStdout: true).trim()
                     
                     if (dockerImageTag != lastImageTag) {
