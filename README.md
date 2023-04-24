@@ -5,7 +5,7 @@ This is a CI/CD automation process which is monitoring the EC2 on AWS by display
 *	The trigger pipeline is configured clone the git repository and to build a docker image using the dockerfile include in the repository and push it to DockerHub with a tag added by the env.BUILD_NUMBER variable
 *	The run.py file is the python script that is running when you run the image.
 *	The script monitor your EC2 on AWS account using boto3 in order to be notified of active EC2 on the account
-*	The Jenkinsfile-Cron file is the second pipeline which is trigger to run every 5 minutes in order to check according to the first pipline and according to the image tag  whether the app has changed and there is a need to pull the image from DockerHub and rebuild it or there was no change and no need to rebuild the image.
+*	The Jenkinsfile-Cron file is the second pipeline which is trigger to run every 5 minutes in order to check according to the first pipline and according to the image tag whether the app has changed and there is a need to pull the image from DockerHub and run it or there was no change and no need to run the app.
 
 Requirements:  
 *	The docker commands require installation of “Docker plugin” and “Docker Pipeline”
