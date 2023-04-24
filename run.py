@@ -6,7 +6,7 @@ ec2 = boto3.client('ec2')
 # Define the filters for the query
 filters = [
     {'Name': 'tag:k8s.io/role/master', 'Values': ['1']},
-    {'Name': 'instance-state-code', 'Values': ['80']}
+    {'Name': 'instance-state-code', 'Values': ['16']}
 ]
 
 # Use the filters to get a list of instances
