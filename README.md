@@ -8,10 +8,10 @@ This is a CI/CD automation process which is monitoring the EC2 on AWS by display
 *	The Jenkinsfile-Cron file is the second pipeline which is trigger to run every 5 minutes in order to check according to the first pipline and according to the image tag  whether the app has changed and there is a need to pull the image from DockerHub and rebuild it or there was no change and no need to rebuild the image.
 
 Requirements:  
-•	The docker commands require installation of “Docker plugin” and “Docker Pipeline”
-•	When running the Jenkinsfile-Cron there is a need for signature approvals of the above:
-o	method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object
-o	method hudson.model.ItemGroup getItem java.lang.String
-o	method hudson.model.Job getLastSuccessfulBuild
-o	method hudson.model.Run getNumber
-o	staticMethod jenkins.model.Jenkins getInstance
+*	The docker commands require installation of “Docker plugin” and “Docker Pipeline”
+*	When running the Jenkinsfile-Cron there is a need for signature approvals of the above:
+ 	* method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object
+  *	method hudson.model.ItemGroup getItem java.lang.String
+  *	method hudson.model.Job getLastSuccessfulBuild
+  * method hudson.model.Run getNumber
+	* staticMethod jenkins.model.Jenkins getInstance
