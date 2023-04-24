@@ -11,7 +11,7 @@ Requirements:
 *	The docker commands require installation of “Docker plugin” and “Docker Pipeline”
 *	When running the Jenkinsfile-Cron there is a need for signature approvals of the above:
  	* method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object
-  *	method hudson.model.ItemGroup getItem java.lang.String
-  *	method hudson.model.Job getLastSuccessfulBuild
-  * method hudson.model.Run getNumber
+   	* method hudson.model.ItemGroup getItem java.lang.String
+  	* method hudson.model.Job getLastSuccessfulBuild
+  	* method hudson.model.Run getNumber
 	* staticMethod jenkins.model.Jenkins getInstance
